@@ -31,7 +31,11 @@ update_function_layers(){
 deploy_lambda_function(){
 
 	requirements_lengh=$(wc -c ${INPUT_REQUIREMENTS_TXT})
-
+	if [$requirements_lengh -lt 2]
+	then
+	 echo "No requirements on file"
+	if
+	
 	if [$requirements_lengh -gt 2]
 	then
 	 install_zip_dependencies
@@ -42,7 +46,7 @@ deploy_lambda_function(){
 	
 	if [$requirements_lengh -gt 2]
 	then
-	update_function_layers
+	 update_function_layers
 	fi
 }	
 
