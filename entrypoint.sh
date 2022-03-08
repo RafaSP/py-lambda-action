@@ -30,9 +30,9 @@ update_function_layers(){
 
 deploy_lambda_function(){
 
-	requirements_lengh = $(wc -c ${INPUT_REQUIREMENTS_TXT})
+	requirements_lengh=$(wc -c ${INPUT_REQUIREMENTS_TXT})
 
-	if [$requirements_lengh > 2]
+	if [$requirements_lengh -gt 2]
 	then
 	 install_zip_dependencies
 	 publish_dependencies_as_layer
@@ -40,7 +40,7 @@ deploy_lambda_function(){
 	
 	publish_function_code
 	
-	if [$requirements_lengh > 2]
+	if [$requirements_lengh -gt 2]
 	then
 	update_function_layers
 	fi
