@@ -30,22 +30,19 @@ update_function_layers(){
 
 deploy_lambda_function(){
 
-	requirements_lengh=$(wc -c ${INPUT_REQUIREMENTS_TXT})
-	if (($requirements_lengh < 2))
-	then
+	REQUIREMENTS_LENGTH=$(wc -c ${INPUT_REQUIREMENTS_TXT})
+	if [ $REQUIREMENTS_LENGTH -lt 3 ]; then
 	 echo "No requirements on file"
 	if
 	
-	if (($requirements_lengh < 2))
-	then
+	if [ $REQUIREMENTS_LENGTH -gt 2 ]; then
 	 install_zip_dependencies
 	 publish_dependencies_as_layer
 	fi
 	
 	publish_function_code
 	
-	if [(($requirements_lengh < 2))
-	then
+	if [ $REQUIREMENTS_LENGTH -gt 2 ]; then
 	 update_function_layers
 	fi
 }	
