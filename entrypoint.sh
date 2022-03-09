@@ -33,7 +33,7 @@ deploy_lambda_function(){
 	REQUIREMENTS_LENGTH=$(wc -c "${INPUT_REQUIREMENTS_TXT}")
 	if [ $REQUIREMENTS_LENGTH -lt 3 ]; then
 	 echo "No requirements on file"
-	if
+	fi
 	
 	if [ $REQUIREMENTS_LENGTH -gt 2 ]; then
 	 install_zip_dependencies
